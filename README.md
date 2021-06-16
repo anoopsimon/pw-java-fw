@@ -7,6 +7,8 @@ This framework has following features
 - Cucumber BDD support
 - Cucumber Report integration [https://reports.cucumber.io/]
 - Excel Reader - Not based on Apache POI :relaxed: 
-- JSON Reader
 
+Paltform
+- Java 11
+- Gradle 6
 

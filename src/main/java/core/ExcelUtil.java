@@ -25,4 +25,16 @@ public class ExcelUtil {
 
     }
 
+    public static Stream<Row> readSheet(String file,String sheetName)  {
+
+        try (InputStream is = new FileInputStream(new File(file)); ReadableWorkbook wb = new ReadableWorkbook(is)) {
+            Sheet workSheet = wb.getSheets().filter(sheet->sheet.getName().equalsIgnoreCase(sheetName)).findFirst().orElseThrow(Exception::new);
+            return workSheet.openStream();
+        }catch(Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Failed to read excel " + file + "Reason : " + e.getMessage());
+        }
+
+    }
+
 }
