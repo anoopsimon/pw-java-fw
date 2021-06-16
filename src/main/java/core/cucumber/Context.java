@@ -1,13 +1,11 @@
 package core.cucumber;
 import java.util.HashMap;
 
-import com.microsoft.playwright.Page;
-
-public class ScenarioContext 
+public class Context 
 {
     private HashMap<String,Object> map;
 
-    public ScenarioContext()
+    public Context()
     {
         map=new HashMap<String,Object>();
     }

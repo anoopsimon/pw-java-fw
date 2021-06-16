@@ -6,7 +6,7 @@ import com.microsoft.playwright.Page;
 
 import core.PlaywrightAdapater;
 import core.cucumber.CoreSteps;
-import core.cucumber.ScenarioContext;
+import core.cucumber.Context;
 
 import org.dhatim.fastexcel.reader.Row;
 import org.dhatim.fastexcel.reader.Sheet;

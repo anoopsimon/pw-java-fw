@@ -1,10 +1,9 @@
 package steps;
 
 import com.microsoft.playwright.Page;
+import core.cucumber.Context;
 
-import core.cucumber.ScenarioContext;
-
-public class TestContext extends ScenarioContext
+public class TestContext extends Context
  {
     public Page playWrightSession;
     public void sePlayWrightSession( Page session)
