@@ -1,5 +1,3 @@
-# pw-java-fw
-
 ## Playwright Java automation framework
 [Why Playwright]: https://playwright.dev/java/docs/why-playwright
 
@@ -8,6 +6,7 @@ This framework has following features
 
 - Cucumber BDD support
 - Cucumber Report integration [https://reports.cucumber.io/]
+- Dependency Injection using PICO container
 - Excel Reader - Not based on Apache POI :relaxed: 
 
 Paltform
