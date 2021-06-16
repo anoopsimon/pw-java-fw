@@ -1,5 +1,5 @@
   
 Feature: Belly
 
-  Scenario: a few cukes
-    Given I login to an app
+  Scenario: Verify playwirght ui
+    Given I navigate to Playwright website

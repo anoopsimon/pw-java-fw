@@ -5,7 +5,8 @@
 This framework has following features
 
 - Cucumber BDD support
-- Excel Reader ( Fastest)
+- Cucumber Report integration [https://reports.cucumber.io/]
+- Excel Reader - Not based on Apache POI :relaxed: 
 - JSON Reader
 
 

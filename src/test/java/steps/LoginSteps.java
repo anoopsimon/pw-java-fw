@@ -1,12 +1,13 @@
 package steps;
+import core.ExcelUtil;
 import io.cucumber.java.en.Given;
 
 
 
 public class LoginSteps {
     
-    @Given("I login to an app")
-    public void login() {
-       
+    @Given("I navigate to Playwright website")
+    public void navigateToPlaywright() throws Exception {
+       ExcelUtil.read(System.getProperty("user.dir")+"/src/test/data/tData.xlsx");
     }
 }
