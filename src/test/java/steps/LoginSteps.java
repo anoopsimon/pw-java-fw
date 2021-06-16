@@ -1,13 +1,14 @@
 package steps;
+import java.util.HashMap;
+
 import com.microsoft.playwright.Page;
 
 import core.PlaywrightAdapater;
 import org.dhatim.fastexcel.reader.Row;
 import org.dhatim.fastexcel.reader.Sheet;
 import core.ExcelUtil;
+import core.JsonUtil;
 import io.cucumber.java.en.Given;
-import pages.SearchPage;
-
 
 
 public class LoginSteps{
@@ -28,5 +29,17 @@ public class LoginSteps{
        //System.out.print(sheet.findFirst().get().getCell(0).asString());
       
 
+    }
+
+    @Given("I read test data from json")
+    public void readTestData() 
+    {
+        String file=System.getProperty("user.dir")+"/src/test/data/tData.json";
+        HashMap map = JsonUtil.fromJsonFile(file, HashMap.class);
+        for (Object iterable_element : map.keySet())
+         {
+            System.out.println(map.get(iterable_element));
+
+        }
     }
 }
