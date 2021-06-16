@@ -2,12 +2,15 @@ package core;
 
 import java.util.List;
 
+import com.google.common.flogger.FluentLogger;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 
 public class PlayWrightCommands
 {
     Page page;
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
     public PlayWrightCommands(Page page){
         this.page=page;
     }
@@ -18,20 +21,26 @@ public class PlayWrightCommands
 
     public void click(String selector)
     {
+        logger.atInfo().log("Click on element using selector %s'",selector);
         getPage().click(selector);
     }
     public List<ElementHandle> getElements(String selector)
-    {        
+    {  
+        logger.atInfo().log("Get all elements matching selector '%s'",selector);      
        return getPage().querySelectorAll(selector);
     }
 
     public void type(String selector , String value)
     {
+        logger.atInfo().log("Enter text '%s' to element using selector '%s' ",selector,value);      
+
         getPage().fill(selector,value);
     }
 
     public void goTo(String url)
     {
+        logger.atInfo().log("Naviagate to URL => %s ",url);      
+
         getPage().navigate(url);
     }
 

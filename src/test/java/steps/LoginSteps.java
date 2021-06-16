@@ -4,15 +4,17 @@ import java.util.stream.Stream;
 
 import com.microsoft.playwright.Page;
 
-import core.PlaywrightAdapater;
+import core.PlaywrightAdapter;
 import org.dhatim.fastexcel.reader.Row;
-import org.dhatim.fastexcel.reader.Sheet;
 import core.ExcelUtil;
 import core.JsonUtil;
 import io.cucumber.java.en.Given;
+import com.google.common.flogger.FluentLogger;
 
 
 public class LoginSteps{
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
     private TestContext testContext;
     public LoginSteps(TestContext scenarioContext)
     {
@@ -21,7 +23,9 @@ public class LoginSteps{
 
     @Given("I navigate to Playwright website")
     public void navigateToPlaywright() throws Exception {
-        PlaywrightAdapater adapter= new PlaywrightAdapater();
+        
+
+        PlaywrightAdapter adapter= new PlaywrightAdapter();
         Page page = adapter.initialize();
         testContext.sePlayWrightSession(page);       
 
