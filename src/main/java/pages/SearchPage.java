@@ -26,12 +26,15 @@ public class SearchPage extends BasePage {
 
     public void search(String query) {
         clearSearchBar();
-        page.fill(locator_searchBar, query);
+        commands.type(locator_searchBar, query);
 
         var expectedState = new Page.WaitForSelectorOptions().withState(ATTACHED);
         page.waitForSelector(locator_hiddenBooks, expectedState);
     }
 
+    public void navigate(String url){
+        commands.goTo(url);
+    }
     public void clearSearchBar() {
         page.fill(locator_searchBar, "");
 
