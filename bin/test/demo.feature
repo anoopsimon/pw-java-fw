@@ -1,5 +1,5 @@
   
-Feature: Belly
+Feature: Playwright Tests
 
   Scenario: Verify playwirght ui
     Given I navigate to Playwright website

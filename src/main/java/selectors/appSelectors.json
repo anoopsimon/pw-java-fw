@@ -1,0 +1,7 @@
+{
+  "visibleBookTitles": "li:not(.ui-screen-hidden) h2",
+  "locator_searchBar": "#searchBar",
+  "locator_hiddenBooks": "li.ui-screen-hidden",
+  "locator_visibleBooks": "li:not(.ui-screen-hidden)",
+  "locator_visibleBookTitles": "li:not(.ui-screen-hidden) h2"
+}

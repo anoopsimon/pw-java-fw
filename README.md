@@ -12,6 +12,9 @@ This framework has following features
 - UI Automation using Microsoft Playwright.
 - Logging using Google's Flogger framework.
 
+## How to run tests using Gradle
+
+run command `gradle test` from command line assuming command window opened in the root of the project.
 
 Paltform
 - Java 11

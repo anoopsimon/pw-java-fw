@@ -27,7 +27,7 @@ public class LoginSteps{
 
         PlaywrightAdapter adapter= new PlaywrightAdapter();
         Page page = adapter.initialize();
-        testContext.sePlayWrightSession(page);       
+        testContext.setPlayWrightSession(page);       
 
     }
 

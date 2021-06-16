@@ -19,5 +19,7 @@ public class HomeSteps {
         SearchPage searchPage = new SearchPage(page1);
         searchPage.navigate(TestConfiguration.appUrl());
         searchPage.search("Test");
+
+      
     }
 }

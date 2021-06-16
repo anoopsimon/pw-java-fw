@@ -37,6 +37,13 @@ public class PlayWrightCommands
         getPage().fill(selector,value);
     }
 
+    public void clear(String selector)
+    {
+        logger.atInfo().log("Clear text '%s' in element using selector ",selector);      
+
+        getPage().fill(selector,"");
+    }
+
     public void goTo(String url)
     {
         logger.atInfo().log("Naviagate to URL => %s ",url);      

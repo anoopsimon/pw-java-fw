@@ -1,6 +1,6 @@
 {
     "project":"playwright automation framework",
     "version":1,
-    "headless":true,
+    "headless":false,
     "appUrl":"https://automationbookstore.dev/"
 }

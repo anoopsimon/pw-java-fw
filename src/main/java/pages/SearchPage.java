@@ -12,10 +12,6 @@ public class SearchPage extends BasePage {
 
     private Page page;
 
-    private String locator_searchBar = "#searchBar";
-    private String locator_hiddenBooks = "li.ui-screen-hidden";
-    private String locator_visibleBooks = "li:not(.ui-screen-hidden)";
-    private String locator_visibleBookTitles = "li:not(.ui-screen-hidden) h2";
 
 
     public SearchPage(Page page) 
@@ -26,29 +22,28 @@ public class SearchPage extends BasePage {
 
     public void search(String query) {
         clearSearchBar();
-        commands.type(locator_searchBar, query);
+        commands.type(appSelectors("locator_searchBar"), query);
 
         var expectedState = new Page.WaitForSelectorOptions().withState(ATTACHED);
-        page.waitForSelector(locator_hiddenBooks, expectedState);
+        page.waitForSelector(appSelectors("locator_hiddenBooks"), expectedState);
     }
 
     public void navigate(String url){
         commands.goTo(url);
     }
     public void clearSearchBar() {
-        page.fill(locator_searchBar, "");
-
+        commands.clear(appSelectors("locator_searchBar"));
         var expectedState = new Page.WaitForSelectorOptions().withState(DETACHED);
-        page.waitForSelector(locator_hiddenBooks, expectedState);
+        page.waitForSelector(appSelectors("locator_hiddenBooks"), expectedState);
     }
 
     public int getNumberOfVisibleBooks() {
        // return page.querySelectorAll(locator_visibleBooks).size();
-       return commands.getElements(locator_visibleBooks).size();
+       return commands.getElements(appSelectors("locator_visibleBooks")).size();
     }
 
     public List<String> getVisibleBooks() {
-        return page.querySelectorAll(locator_visibleBookTitles)
+        return page.querySelectorAll(appSelectors("visibleBookTitles"))
                 .stream()
                 .map(e -> e.innerText())
                 .collect(Collectors.toList());
