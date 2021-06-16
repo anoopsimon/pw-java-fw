@@ -1,6 +1,8 @@
 package core.cucumber;
 import java.util.HashMap;
 
+import com.microsoft.playwright.Page;
+
 public class ScenarioContext 
 {
     private HashMap<String,Object> map;
@@ -15,12 +17,20 @@ public class ScenarioContext
         map.put(key, value);
     }
 
-    public void get(String key)
+    
+    public Object get(String key)
     {
-        map.get(key);
+        return map.get(key);
     }
 
- 
+    public <T> T get(String key,Class<T> clazz) {
+        try {
+            Object o = get(key);
+            return clazz.cast(o);
+        } catch(ClassCastException e) {
+            return null;
+        }
+    }
 
     public void update(String key , Object value)
     {
@@ -33,4 +43,5 @@ public class ScenarioContext
         map.remove(key);
     }
     
+
 }

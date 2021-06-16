@@ -17,21 +17,18 @@ import pages.SearchPage;
 
 
 public class LoginSteps{
-    private ScenarioContext scenarioContext;
-    public LoginSteps(ScenarioContext scenarioContext)
+    private TestContext testContext;
+    public LoginSteps(TestContext scenarioContext)
     {
-        this.scenarioContext = scenarioContext;
+        this.testContext = scenarioContext;
     }
 
     @Given("I navigate to Playwright website")
     public void navigateToPlaywright() throws Exception {
         PlaywrightAdapater adapter= new PlaywrightAdapater();
         Page page = adapter.initialize();
-        scenarioContext.set("session",page);
-       ;
-        SearchPage searchPage = new SearchPage(page);
-        searchPage.navigate("https://automationbookstore.dev/");
-        searchPage.search("Test");
+        testContext.sePlayWrightSession(page);
+       
 
       // Stream<Row> sheet = ExcelUtil.readSheet(System.getProperty("user.dir")+"/src/test/data/tData.xlsx","Sheet1");
        //System.out.print(sheet.findFirst().get().getCell(0).asString());
