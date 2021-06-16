@@ -10,7 +10,7 @@ public class PlaywrightAdapater {
         Browser browser = Playwright
         .create()
         .chromium()
-        .launch(new BrowserType.LaunchOptions().withHeadless(false));
+        .launch(new BrowserType.LaunchOptions().withHeadless(TestConfiguration.headless()));
         Page page = browser.newPage();
 
         return page;

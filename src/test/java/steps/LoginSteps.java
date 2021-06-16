@@ -1,5 +1,6 @@
 package steps;
 import java.util.HashMap;
+import java.util.stream.Stream;
 
 import com.microsoft.playwright.Page;
 
@@ -22,12 +23,7 @@ public class LoginSteps{
     public void navigateToPlaywright() throws Exception {
         PlaywrightAdapater adapter= new PlaywrightAdapater();
         Page page = adapter.initialize();
-        testContext.sePlayWrightSession(page);
-       
-
-      // Stream<Row> sheet = ExcelUtil.readSheet(System.getProperty("user.dir")+"/src/test/data/tData.xlsx","Sheet1");
-       //System.out.print(sheet.findFirst().get().getCell(0).asString());
-      
+        testContext.sePlayWrightSession(page);       
 
     }
 
@@ -41,5 +37,12 @@ public class LoginSteps{
             System.out.println(map.get(iterable_element));
 
         }
+    }
+
+    @Given("I read test data from excel")
+    public void readTestDataFromExcel() 
+    {
+        Stream<Row> sheet = ExcelUtil.readSheet(System.getProperty("user.dir") + "/src/test/data/tData.xlsx","Sheet1");
+        System.out.print(sheet.findFirst().get().getCell(0).asString());
     }
 }

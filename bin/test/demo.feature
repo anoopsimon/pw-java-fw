@@ -5,3 +5,4 @@ Feature: Belly
     Given I navigate to Playwright website
     And I verify search
     And I read test data from json
+    And I read test data from excel

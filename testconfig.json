@@ -1,0 +1,5 @@
+{
+    "project":"playwright automation framework",
+    "version":1,
+    "headless":true
+}
