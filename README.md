@@ -1,19 +1,11 @@
-# Testing project with browser automation tool Microsoft Playwright + Java
+## Playwright Java automation framework
+[Why Playwright]: https://playwright.dev/java/docs/why-playwright
 
-Microsoft has a new open source web automation tool, [Playwright]. It recently released support for Java. Here are
-example tests that demonstrate how to use Playwright, including creating Page Objects.
+### Features
+This framework has following features
 
-Playwright is a browser automation tool and not necessarily limited to a testing framework and does not provide any
-assertion methods. Therefore, to this project is added an assertion library - TestNG.
+- Cucumber BDD support
+- Excel Reader ( Fastest)
+- JSON Reader
 
-[Playwright]: https://playwright.dev/
 
-### Documentation
-
-[Playwright Javadocs]
-
-[Playwright Javadocs]: https://www.javadoc.io/doc/com.microsoft.playwright/playwright/latest/index.html
-
-[Playwright Official Docs]
-
-[Playwright Official Docs]: https://playwright.dev/docs/intro
