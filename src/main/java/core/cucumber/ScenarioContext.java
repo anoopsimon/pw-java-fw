@@ -1,5 +1,4 @@
 package core.cucumber;
-
 import java.util.HashMap;
 
 public class ScenarioContext 
@@ -11,7 +10,7 @@ public class ScenarioContext
         map=new HashMap<String,Object>();
     }
 
-    public void set(String key , String value)
+    public void set(String key , Object value)
     {
         map.put(key, value);
     }
@@ -21,7 +20,9 @@ public class ScenarioContext
         map.get(key);
     }
 
-    public void update(String key , String value)
+ 
+
+    public void update(String key , Object value)
     {
         map.remove(key, value);
         map.put(key, value);

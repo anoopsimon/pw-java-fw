@@ -37,3 +37,8 @@ task cucumber() {
 tasks.test {
     finalizedBy cucumber
 }
+
+wrapper 
+{
+   gradleVersion = '5.4.1' //version required
+}
