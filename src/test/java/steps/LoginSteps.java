@@ -22,7 +22,7 @@ public class LoginSteps{
     }
 
     @Given("I navigate to Playwright website")
-    public void navigateToPlaywright() throws Exception {
+    public void navigateToPlaywright() throws Exception{
         
 
         PlaywrightAdapter adapter= new PlaywrightAdapter();

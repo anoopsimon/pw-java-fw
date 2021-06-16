@@ -1,9 +1,7 @@
 package steps;
-
-import java.util.stream.Stream;
-
 import com.microsoft.playwright.Page;
 
+import core.TestConfiguration;
 import io.cucumber.java.en.Given;
 import pages.SearchPage;
 
@@ -19,12 +17,7 @@ public class HomeSteps {
     {
         Page page1 = testContext.getPlayWrightSession();
         SearchPage searchPage = new SearchPage(page1);
-        searchPage.navigate("https://automationbookstore.dev/");
+        searchPage.navigate(TestConfiguration.appUrl());
         searchPage.search("Test");
-
-        // Stream<Row> sheet =
-        // ExcelUtil.readSheet(System.getProperty("user.dir")+"/src/test/data/tData.xlsx","Sheet1");
-        // System.out.print(sheet.findFirst().get().getCell(0).asString());
-
     }
 }

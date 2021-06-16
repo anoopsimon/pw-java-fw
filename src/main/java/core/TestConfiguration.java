@@ -12,5 +12,9 @@ public class TestConfiguration
         return  (boolean) configJson().get("headless");
        
     } 
+    public static String appUrl() {
+        return configJson().get("appUrl").toString();
+       
+    } 
     
 }

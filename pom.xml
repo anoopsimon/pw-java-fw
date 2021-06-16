@@ -76,6 +76,12 @@
     <artifactId>flogger</artifactId>
     <version>0.6</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/com.google.flogger/flogger-system-backend -->
+<dependency>
+    <groupId>com.google.flogger</groupId>
+    <artifactId>flogger-system-backend</artifactId>
+    <version>0.6</version>
+</dependency>
 
 
     </dependencies>
