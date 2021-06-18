@@ -6,3 +6,7 @@ Feature: Playwright Tests
     And I verify search
     And I read test data from json
     And I read test data from excel
+
+@data
+  Scenario: Verify playwright ui
+    And I read test data from excel
