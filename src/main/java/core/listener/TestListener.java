@@ -9,12 +9,22 @@ import io.cucumber.plugin.event.TestRunFinished;
 import io.cucumber.plugin.event.TestRunStarted;
 import io.cucumber.plugin.event.TestStepFinished;
 import io.cucumber.plugin.event.TestStepStarted;
+import model.TestResult;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.common.flogger.FluentLogger;
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 
 public class TestListener implements ConcurrentEventListener
 {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+    private List<TestResult> testResults;
+    private TestResult testResult;
 
     @Override
     public void setEventPublisher(EventPublisher publisher) 
@@ -25,7 +35,6 @@ public class TestListener implements ConcurrentEventListener
          publisher.registerHandlerFor(TestCaseFinished.class, testCaseFinished);
          publisher.registerHandlerFor(TestStepStarted.class, testStepStarted);
          publisher.registerHandlerFor(TestStepFinished.class,testStepFinished);
-
         
     }
 
@@ -74,18 +83,39 @@ public class TestListener implements ConcurrentEventListener
 
     private synchronized void testRunStarted(TestRunStarted event) {
         logger.atInfo().log("Testrun '%s' started " , event.getInstant().toString());
+        testResults= new ArrayList<TestResult>();
     };
 
     private synchronized void testRunFinished(TestRunFinished event) {
-        logger.atInfo().log("Testrun '%s' finished " , event.getMessage());
+        logger.atInfo().log("Testrun '%s' finished " , event.getInstant());
+
+        Gson gson = new Gson();
+        try {
+           String json= gson.toJson(testResults);//,new FileWriter("C:/Temp/results.json"));
+           logger.atInfo().log("Array " + json);}
+catch (Exception e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+       }
+
+
+   
     };
     private synchronized void testCaseStarted(TestCaseStarted event) {
         logger.atInfo().log("Scenario '%s' started " , event.getTestCase().getName());
+        testResult= new TestResult();
+        testResult.testCaseName=event.getTestCase().getName();
+        testResult.testStatus="In Progress";
     };
 
-    private synchronized void testCaseFinished(TestCaseFinished event) {
+    private synchronized void testCaseFinished(TestCaseFinished event)  {
         logger.atInfo().log("Scenario '%s' finished " , event.getTestCase().getName());
-    };
+        testResult.testStatus=event.getResult().getStatus().name();
+        testResult.duration = event.getResult().getDuration().toMillis();
+        testResults.add(testResult);
+        logger.atInfo().log("Array " + testResults);
+
+    }
 
     private synchronized void stepStarted(TestStepStarted event) {
         logger.atInfo().log("Step '%s' started " , event.getTestStep().getId());

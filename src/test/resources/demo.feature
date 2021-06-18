@@ -1,4 +1,4 @@
-@smoke
+
 Feature: Playwright Tests
 
   Scenario: Verify playwirght ui
