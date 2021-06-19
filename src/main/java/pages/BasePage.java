@@ -5,8 +5,8 @@ import java.util.HashMap;
 import com.google.common.flogger.FluentLogger;
 import com.microsoft.playwright.Page;
 
-import core.JsonUtil;
 import core.PlayWrightCommands;
+import core.util.JsonUtil;
 
 public class BasePage{
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();

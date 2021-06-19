@@ -23,6 +23,8 @@ import com.google.common.flogger.FluentLogger;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 
+import core.util.TestReportUtil;
+
 public class TestListener implements ConcurrentEventListener
 {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
@@ -89,24 +91,10 @@ public class TestListener implements ConcurrentEventListener
         testResults= new ArrayList<TestResult>();
     };
 
-    private synchronized void testRunFinished(TestRunFinished event) {
+    private synchronized void testRunFinished(TestRunFinished event) 
+    {
         logger.atInfo().log("Testrun '%s' finished " , event.getInstant());
-
-        Gson gson = new Gson();
-        try {
-           String json= gson.toJson(testResults);//,new FileWriter("C:/Temp/results.json"));
-           String resultDir = System.getProperty("user.dir")+"/.report";
-           Files.createDirectories(Paths.get(resultDir));
-           Files.write(Paths.get(resultDir+"/"+UUID.randomUUID().toString()+".json"), json.getBytes());    
-
-        }            
-        catch (Exception e) {
-           // TODO Auto-generated catch block
-           e.printStackTrace();
-       }
-
-
-   
+        TestReportUtil.writeResultsToFile(testResults);   
     };
     private synchronized void testCaseStarted(TestCaseStarted event) {
         logger.atInfo().log("Scenario '%s' started " , event.getTestCase().getName());

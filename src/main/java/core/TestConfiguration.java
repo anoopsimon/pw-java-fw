@@ -2,6 +2,8 @@ package core;
 
 import java.util.HashMap;
 
+import core.util.JsonUtil;
+
 public class TestConfiguration
  {
     public static HashMap configJson ()
