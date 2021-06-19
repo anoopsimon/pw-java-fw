@@ -13,8 +13,11 @@ import model.TestResult;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.common.flogger.FluentLogger;
 import com.google.gson.Gson;
@@ -92,8 +95,12 @@ public class TestListener implements ConcurrentEventListener
         Gson gson = new Gson();
         try {
            String json= gson.toJson(testResults);//,new FileWriter("C:/Temp/results.json"));
-           logger.atInfo().log("Array " + json);}
-catch (Exception e) {
+           String resultDir = System.getProperty("user.dir")+"/.report";
+           Files.createDirectories(Paths.get(resultDir));
+           Files.write(Paths.get(resultDir+"/"+UUID.randomUUID().toString()+".json"), json.getBytes());    
+
+        }            
+        catch (Exception e) {
            // TODO Auto-generated catch block
            e.printStackTrace();
        }

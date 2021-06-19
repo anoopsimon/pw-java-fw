@@ -8,5 +8,9 @@ Feature: Playwright Tests
     And I read test data from excel
 
 @data
-  Scenario: Verify playwright ui
+  Scenario Outline: Verify playwright ui
     And I read test data from excel
+    Examples:
+    |id|
+    |1|
+    |2|
