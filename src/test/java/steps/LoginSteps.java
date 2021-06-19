@@ -46,7 +46,7 @@ public class LoginSteps{
     }
 
     @Given("I read test data from excel")
-    public void readTestDataFromExcel() 
+    public void readTestDataFromExcel() throws InterruptedException 
     {
         Stream<Row> sheet = ExcelUtil.readSheet(System.getProperty("user.dir") + "/src/test/data/tData.xlsx","Sheet1");
         System.out.print(sheet.findFirst().get().getCell(0).asString());
