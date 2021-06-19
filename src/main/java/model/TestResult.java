@@ -2,16 +2,17 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.Step;
 
 
 public class TestResult 
 {
     public TestResult()
     {
-      
+        testSteps=new ArrayList<Step>();
     }
     public String testCaseName;
-    public List<Steps> testSteps;
+    public List<Step> testSteps;
     public List<String> tags;
 
     public String testStatus;
